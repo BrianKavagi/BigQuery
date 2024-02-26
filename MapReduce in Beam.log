@@ -1,0 +1,43 @@
+Linux training-vm 5.10.0-21-cloud-amd64 #1 SMP Debian 5.10.162-1 (2023-01-21) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Creating directory '/home/student-01-27a152cf41e1'.
+student-01-27a152cf41e1@training-vm:~$ git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+Cloning into 'training-data-analyst'...
+remote: Enumerating objects: 64435, done.
+remote: Counting objects: 100% (119/119), done.
+remote: Compressing objects: 100% (86/86), done.
+remote: Total 64435 (delta 54), reused 84 (delta 31), pack-reused 64316
+Receiving objects: 100% (64435/64435), 696.69 MiB | 27.25 MiB/s, done.
+Resolving deltas: 100% (41131/41131), done.
+Updating files: 100% (12860/12860), done.
+student-01-27a152cf41e1@training-vm:~$ cd ~/training-data-analyst/courses/data_analysis/lab2/python
+
+nano is_popular.py
+student-01-27a152cf41e1@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ python3 ./is_popular.py
+student-01-27a152cf41e1@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ ls -al /tmp
+total 52
+drwxrwxrwt 11 root                    root           4096 Feb 23 16:51 .
+drwxr-xr-x 18 root                    root           4096 Feb 23 16:35 ..
+drwxrwxrwt  2 root                    root           4096 Feb 23 16:35 .ICE-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 16:35 .Test-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 16:35 .X11-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 16:35 .XIM-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 16:35 .font-unix
+-rw-r--r--  1 root                    root             27 Feb 23 16:35 octopus.txt
+-rw-r--r--  1 student-01-27a152cf41e1 google-sudoers  128 Feb 23 16:51 output-00000-of-00001
+drwx------  2 student-01-27a152cf41e1 google-sudoers 4096 Feb 23 16:49 ssh-GXahclRbhR
+drwx------  3 root                    root           4096 Feb 23 16:35 systemd-private-2059ee54c0ef41c491d36aabc94addd8-chrony.service-m4ihVf
+drwx------  3 root                    root           4096 Feb 23 16:35 systemd-private-2059ee54c0ef41c491d36aabc94addd8-haveged.service-AfOBdg
+drwx------  3 root                    root           4096 Feb 23 16:35 systemd-private-2059ee54c0ef41c491d36aabc94addd8-systemd-logind.service-TiTKAh
+student-01-27a152cf41e1@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ cat /tmp/output-*
+[('org', 45), ('org.apache', 44), ('org.apache.beam', 44), ('org.apache.beam.sdk', 43), ('org.apache.beam.sdk.transforms', 16)]
+student-01-27a152cf41e1@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ python3 ./is_popular.py --output_prefix=/tmp/myoutput
+student-01-27a152cf41e1@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ ls -lrt /tmp/myoutput*
+-rw-r--r-- 1 student-01-27a152cf41e1 google-sudoers 128 Feb 23 16:52 /tmp/myoutput-00000-of-00001
+student-01-27a152cf41e1@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ 

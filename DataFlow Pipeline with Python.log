@@ -1,0 +1,225 @@
+Linux training-vm 5.10.0-21-cloud-amd64 #1 SMP Debian 5.10.162-1 (2023-01-21) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Creating directory '/home/student-03-d30e6c4b975b'.
+student-03-d30e6c4b975b@training-vm:~$ git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+Cloning into 'training-data-analyst'...
+remote: Enumerating objects: 64435, done.
+remote: Counting objects: 100% (119/119), done.
+remote: Compressing objects: 100% (86/86), done.
+remote: Total 64435 (delta 54), reused 84 (delta 31), pack-reused 64316
+Receiving objects: 100% (64435/64435), 696.69 MiB | 28.82 MiB/s, done.
+Resolving deltas: 100% (41131/41131), done.
+Updating files: 100% (12860/12860), done.
+student-03-d30e6c4b975b@training-vm:~$ BUCKET="qwiklabs-gcp-01-7868cb025e59"
+echo $BUCKET
+qwiklabs-gcp-01-7868cb025e59
+student-03-d30e6c4b975b@training-vm:~$ /training-data-analyst/courses/data_analysis/lab2/python
+-bash: /training-data-analyst/courses/data_analysis/lab2/python: No such file or directory
+student-03-d30e6c4b975b@training-vm:~$ cd ~/training-data-analyst/courses/data_analysis/lab2/python
+
+nano grep.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ python3 grep.py
+WARNING:apache_beam.options.pipeline_options:Discarding unparseable args: ['grep.py']
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ ls -al /tmp
+total 52
+drwxrwxrwt 11 root                    root           4096 Feb 23 15:44 .
+drwxr-xr-x 18 root                    root           4096 Feb 23 15:27 ..
+drwxrwxrwt  2 root                    root           4096 Feb 23 15:27 .ICE-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 15:27 .Test-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 15:27 .X11-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 15:27 .XIM-unix
+drwxrwxrwt  2 root                    root           4096 Feb 23 15:27 .font-unix
+-rw-r--r--  1 root                    root             27 Feb 23 15:27 octopus.txt
+-rw-r--r--  1 student-03-d30e6c4b975b google-sudoers 2570 Feb 23 15:44 output-00000-of-00001
+drwx------  2 student-03-d30e6c4b975b google-sudoers 4096 Feb 23 15:36 ssh-AvgrWUE1ox
+drwx------  3 root                    root           4096 Feb 23 15:27 systemd-private-bfdb5f84c7a54f1e80a99716b170ca3b-chrony.service-Reoydj
+drwx------  3 root                    root           4096 Feb 23 15:27 systemd-private-bfdb5f84c7a54f1e80a99716b170ca3b-haveged.service-2NmiDh
+drwx------  3 root                    root           4096 Feb 23 15:27 systemd-private-bfdb5f84c7a54f1e80a99716b170ca3b-systemd-logind.service-mCaldj
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ cat /tmp/output-*
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.TextIO;
+import org.apache.beam.sdk.options.Default;
+import org.apache.beam.sdk.options.Description;
+import org.apache.beam.sdk.options.PipelineOptions;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.Sum;
+import org.apache.beam.sdk.transforms.Top;
+import org.apache.beam.sdk.values.KV;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
+import org.apache.beam.sdk.io.gcp.pubsub.PubsubIO;
+import org.apache.beam.sdk.options.Default;
+import org.apache.beam.sdk.options.Description;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.Sum;
+import org.apache.beam.sdk.transforms.windowing.SlidingWindows;
+import org.apache.beam.sdk.transforms.windowing.Window;
+import org.joda.time.Duration;
+import com.google.api.services.bigquery.model.TableFieldSchema;
+import com.google.api.services.bigquery.model.TableRow;
+import com.google.api.services.bigquery.model.TableSchema;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.TextIO;
+import org.apache.beam.sdk.options.PipelineOptions;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import com.google.api.services.bigquery.model.TableRow;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
+import org.apache.beam.sdk.io.TextIO;
+import org.apache.beam.sdk.options.Default;
+import org.apache.beam.sdk.options.Description;
+import org.apache.beam.sdk.options.PipelineOptions;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.Sum;
+import org.apache.beam.sdk.transforms.Top;
+import org.apache.beam.sdk.transforms.View;
+import org.apache.beam.sdk.values.KV;
+import org.apache.beam.sdk.values.PCollection;
+import org.apache.beam.sdk.values.PCollectionView;
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ gcloud storage cp ../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/*.java gs://$BUCKET/javahelp
+Copying file://../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/Grep.java to gs://qwiklabs-gcp-01-7868cb025e59/javahelp/Grep.java
+Copying file://../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/IsPopular.java to gs://qwiklabs-gcp-01-7868cb025e59/javahelp/IsPopular.java
+Copying file://../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/JavaProjectsThatNeedHelp.java to gs://qwiklabs-gcp-01-7868cb025e59/javahelp/JavaProjectsThatNeedHelp.java
+Copying file://../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/StreamDemoConsumer.java to gs://qwiklabs-gcp-01-7868cb025e59/javahelp/StreamDemoConsumer.java
+  Completed files 4/4 | 16.7kiB/16.7kiB                                                                       
+
+Average throughput: 6.8MiB/s
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ nano grepc.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ nano grepc.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ nano grepc.py
+
+
+Use "fg" to return to nano.
+
+[1]+  Stopped                 nano grepc.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ nano grepc.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ nano grepc.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ nano grepc.py
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ python3 grepc.pystudent-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ python3 grepc.pyTraceback (most recent call last):
+  File "/home/student-03-d30e6c4b975b/training-data-analyst/courses/data_analysis/lab2/python/grepc.py", line 53, in <module>
+    run()
+  File "/home/student-03-d30e6c4b975b/training-data-analyst/courses/data_analysis/lab2/python/grepc.py", line 50, in run
+    p.run()
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/pipeline.py", line 550, in run
+    return Pipeline.from_runner_api(
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/pipeline.py", line 577, in run
+    return self.runner.run_pipeline(self, self._options)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/runners/dataflow/dataflow_runner.py", line 542, in run_pipeline
+    self.dataflow_client.create_job(self.job), self)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/utils/retry.py", line 275, in wrapper
+    return fun(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/runners/dataflow/internal/apiclient.py", line 777, in create_job
+    return self.submit_job_description(job)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/utils/retry.py", line 275, in wrapper
+    return fun(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/runners/dataflow/internal/apiclient.py", line 895, in submit_job_description
+    raise DataflowJobAlreadyExistsError(
+apache_beam.runners.dataflow.internal.apiclient.DataflowJobAlreadyExistsError: There is already active job named examplejob2 with id: 2024-02-23_07_52_15-14406474990109122329. If you want to submit a second job, try again by setting a different name using --job_name.
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ python3 grepc.pyTraceback (most recent call last):
+  File "/home/student-03-d30e6c4b975b/training-data-analyst/courses/data_analysis/lab2/python/grepc.py", line 53, in <module>
+    run()
+  File "/home/student-03-d30e6c4b975b/training-data-analyst/courses/data_analysis/lab2/python/grepc.py", line 50, in run
+    p.run()
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/pipeline.py", line 550, in run
+    return Pipeline.from_runner_api(
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/pipeline.py", line 577, in run
+    return self.runner.run_pipeline(self, self._options)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/runners/dataflow/dataflow_runner.py", line 542, in run_pipeline
+    self.dataflow_client.create_job(self.job), self)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/utils/retry.py", line 275, in wrapper
+    return fun(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/runners/dataflow/internal/apiclient.py", line 777, in create_job
+    return self.submit_job_description(job)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/utils/retry.py", line 275, in wrapper
+    return fun(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/apache_beam/runners/dataflow/internal/apiclient.py", line 895, in submit_job_description
+    raise DataflowJobAlreadyExistsError(
+apache_beam.runners.dataflow.internal.apiclient.DataflowJobAlreadyExistsError: There is already active job named examplejob2 with id: 2024-02-23_07_52_15-14406474990109122329. If you want to submit a second job, try again by setting a different name using --job_name.
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ ^C
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ gcloud storage cp gs://$BUCKET/javahelp/output* .
+cat output*
+Copying gs://qwiklabs-gcp-01-7868cb025e59/javahelp/output-00000-of-00001 to file://./output-00000-of-00001
+  Completed files 1/1 | 2.5kiB/2.5kiB                                                                         
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.TextIO;
+import org.apache.beam.sdk.options.PipelineOptions;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.TextIO;
+import org.apache.beam.sdk.options.Default;
+import org.apache.beam.sdk.options.Description;
+import org.apache.beam.sdk.options.PipelineOptions;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.Sum;
+import org.apache.beam.sdk.transforms.Top;
+import org.apache.beam.sdk.values.KV;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import com.google.api.services.bigquery.model.TableRow;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
+import org.apache.beam.sdk.io.TextIO;
+import org.apache.beam.sdk.options.Default;
+import org.apache.beam.sdk.options.Description;
+import org.apache.beam.sdk.options.PipelineOptions;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.Sum;
+import org.apache.beam.sdk.transforms.Top;
+import org.apache.beam.sdk.transforms.View;
+import org.apache.beam.sdk.values.KV;
+import org.apache.beam.sdk.values.PCollection;
+import org.apache.beam.sdk.values.PCollectionView;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
+import org.apache.beam.sdk.Pipeline;
+import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
+import org.apache.beam.sdk.io.gcp.pubsub.PubsubIO;
+import org.apache.beam.sdk.options.Default;
+import org.apache.beam.sdk.options.Description;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.Sum;
+import org.apache.beam.sdk.transforms.windowing.SlidingWindows;
+import org.apache.beam.sdk.transforms.windowing.Window;
+import org.joda.time.Duration;
+import com.google.api.services.bigquery.model.TableFieldSchema;
+import com.google.api.services.bigquery.model.TableRow;
+import com.google.api.services.bigquery.model.TableSchema;
+student-03-d30e6c4b975b@training-vm:~/training-data-analyst/courses/data_analysis/lab2/python$ 
