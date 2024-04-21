@@ -1,16 +1,3 @@
-"""Example Airflow DAG that creates a Cloud Dataproc cluster, runs the Hadoop
-wordcount example, and deletes the cluster.
-
-This DAG relies on three Airflow variables
-https://airflow.apache.org/concepts.html#variables
-* gcp_project - Google Cloud Project to use for the Cloud Dataproc cluster.
-* gce_zone - Google Compute Engine zone where Cloud Dataproc cluster should be
-  created.
-* gcs_bucket - Google Cloud Storage bucket to used as output for the Hadoop jobs from Dataproc.
-  See https://cloud.google.com/storage/docs/creating-buckets for creating a
-  bucket.
-"""
-
 import datetime
 import os
 
